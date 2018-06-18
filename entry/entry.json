@@ -4,11 +4,11 @@
         "htmlPath":"./src/index.html"
     },
     {
-        "jsPath":"./src/print/print.js",
-        "htmlPath":"./src/print/print.html"
+        "jsPath":"./src/views/login/login.js",
+        "htmlPath":"./src/views/login/login.html"
     },
     {
-        "jsPath":"./src/login/login.js",
-        "htmlPath":"./src/login.html"
+        "jsPath":"./src/views/register/register.js",
+        "htmlPath":"./src/views/register/register.html"
     }
 ]
