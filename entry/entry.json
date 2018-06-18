@@ -1,0 +1,14 @@
+[
+    {
+        "jsPath":"./src/index.js",
+        "htmlPath":"./src/index.html"
+    },
+    {
+        "jsPath":"./src/print/print.js",
+        "htmlPath":"./src/print/print.html"
+    },
+    {
+        "jsPath":"./src/login/login.js",
+        "htmlPath":"./src/login.html"
+    }
+]
