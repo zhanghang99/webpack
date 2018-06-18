@@ -6,4 +6,4 @@ if(process.env.NODE_ENV == 'production'){
 }else if(process.env.NODE_ENV == 'development'){
     console.log('这是开发环境！');
 }
-console.log('这是首页！');
+console.log('这是首页！！！！！');

@@ -42,25 +42,32 @@ module.exports = {
                     'ts-loader'
                 ] 
             },
+            // { 
+            //     test: /\.(png|svg|jpg|JPG|fig)$/, 
+            //     use: 'url-loader?limit=1&name=assets/Images/[name].[ext]'
+            // },
+            // { 
+            //     test: /\.(png|svg|jpg|JPG|fig)$/, 
+            //     use: "file-loader?name=assets/Images/[name].[ext]" 
+            // },
             {
-                test: /\.(png|svg|jpg|JPG|fig)$/,
+                test: /\.(png|svg|jpg|JPG|fig)$/i,
                 use:[
                     'file-loader'
                 ]
             },
             {
-                test: /\.(png|jpg|gif|JPG)$/i,
+                test: /\.(png|jpg|gif)$/i,
                 exclude: /(node_modules|bower_components)/,
-                use:'url-loader?limit=120&name=assets/[name].[ext]'
-                // use:[
-                //     {
-                //         loader: 'url-loader',
-                //         options: {
-                //             limit: 1000,
-                //             name: 'assets/[name]-[hash:5].[ext]'
-                //         }
-                //     },
-                // ]
+                use:[
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 1000,
+                            name: 'assets/Images/[name].[ext]'
+                        }
+                    },
+                ]
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,

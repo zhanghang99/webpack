@@ -10,7 +10,7 @@ const entryJSON = require('../entry/entry.json');
 
 let plugins = [
     // new CleanWebpackPlugin(['../dist']),
-    new CleanWebpackPlugin([path.resolve(__dirname, 'dist')]),
+    new CleanWebpackPlugin([path.resolve(__dirname, '../dist')]),
     new UglifyJSPlugin({
         sourceMap: true
     }),//压缩代码
