@@ -7,16 +7,14 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const base = require('./webpack.base.js');
 const entryJSON = require('../entry/entry.json');
 
-
 let plugins = [
-    // new CleanWebpackPlugin(['../dist']),
-    new CleanWebpackPlugin([path.resolve(__dirname, '../dist')]),
+    new CleanWebpackPlugin(path.resolve(__dirname, '../dist'), {
+        root: path.resolve(__dirname, '../'),    // 设置root
+        verbose: true
+    }),
     new UglifyJSPlugin({
         sourceMap: true
     }),//压缩代码
-    new webpack.DefinePlugin({
-        'process.env.NODE_ENV':JSON.stringify('production')
-    })
 ];
 entryJSON.map((url)=>{
     let name = url.htmlPath;

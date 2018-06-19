@@ -21,6 +21,7 @@
     "extract-loader": "^2.0.1",
     "file-loader": "^1.1.11",
     "html-loader": "^0.5.5",
+    "serve": "^9.1.0",
     "style-loader": "^0.21.0",
     "ts-loader": "^4.4.1",
     "url-loader": "^1.0.1",

@@ -27,14 +27,24 @@ module.exports = {
             },
             { //解析 .html
                 test: /\.html$/,
+                exclude:/node_modules/,
                 loader: 'html-loader'
             },
             { 
                 test: /\.css$/, 
+                exclude:/node_modules/,
                 use: [
-                    'style-loader',
-                    'css-loader'
-                ] 
+                        {
+                            loader: 'style-loader'
+                        },
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                sourceMap: true
+                            }
+                        }
+                ],
+                
             },
             { 
                 test: /\.ts$/, 
@@ -42,28 +52,20 @@ module.exports = {
                     'ts-loader'
                 ] 
             },
-            // { 
-            //     test: /\.(png|svg|jpg|JPG|fig)$/, 
-            //     use: 'url-loader?limit=1&name=assets/Images/[name].[ext]'
+            // {
+            //     test: /\.(png|svg|jpg|JPG|fig)$/i,
+            //     use:[
+            //         'file-loader'
+            //     ]
             // },
-            // { 
-            //     test: /\.(png|svg|jpg|JPG|fig)$/, 
-            //     use: "file-loader?name=assets/Images/[name].[ext]" 
-            // },
-            {
-                test: /\.(png|svg|jpg|JPG|fig)$/i,
-                use:[
-                    'file-loader'
-                ]
-            },
             {
                 test: /\.(png|jpg|gif)$/i,
-                exclude: /(node_modules|bower_components)/,
+                exclude:/node_modules/,
                 use:[
                     {
                         loader: 'url-loader',
                         options: {
-                            limit: 1000,
+                            limit: 1024,
                             name: 'assets/Images/[name].[ext]'
                         }
                     },
@@ -71,18 +73,21 @@ module.exports = {
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
+                exclude:/node_modules/,
                 use: [
                     'file-loader'
                 ]
             },
             {
                 test: /\.(csv|tsv)$/,
+                exclude:/node_modules/,
                 use: [
                     'csv-loader'
                 ]
             },
             {
                 test: /\.xml$/,
+                exclude:/node_modules/,
                 use: [
                     'xml-loader'
                 ]
