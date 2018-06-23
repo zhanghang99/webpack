@@ -1,9 +1,19 @@
-import './index.css';
-import Data from './assign/data/data.xml';
+import "./index.scss";
+import Data from "./assign/data/data.xml";
 console.log(Data);
-if(process.env.NODE_ENV == 'production'){
-    console.log('这是生产环境！');
-}else if(process.env.NODE_ENV == 'development'){
-    console.log('这是开发环境！');
+if(process.env.NODE_ENV == "production"){
+    console.log("这是生产环境！");
+}else if(process.env.NODE_ENV == "development"){
+    console.log("这是开发环境！");
 }
-console.log('这是首页！！！！！');
+console.log("这是首页！！！！！");
+async function aa(){
+    let bb = await cc();
+    console.log(bb);
+}
+function cc(){
+    return new Promise((resolve,reject)=>{
+        resolve('123456789');
+    })
+}
+aa();

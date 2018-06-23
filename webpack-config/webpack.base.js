@@ -44,7 +44,18 @@ module.exports = {
                             }
                         }
                 ],
-                
+            },
+            {
+                test: /\.scss$/,
+                use: [{
+                    loader: "style-loader" // 将 JS 字符串生成为 style 节点
+                }, {
+                    loader: "css-loader" // 将 CSS 转化成 CommonJS 模块
+                }, {
+                    loader: "sass-loader" // 将 Sass 编译成 CSS
+                }]
+                // loader: ExtractTextPlugin.extract("style", 'css!sass') //这里用了样式分离出来的插件，如果不想分离出来，可以直接这样写 loader:'style!css!sass'
+                // loader:'style!css!sass'
             },
             { 
                 test: /\.ts$/, 
@@ -91,7 +102,15 @@ module.exports = {
                 use: [
                     'xml-loader'
                 ]
-            }
+            },
+            // {
+            //     test: /\.js$/,
+            //     enforce: 'pre',
+            //     exclude:/node_modules/,
+            //     use: [
+            //         'eslint-loader'
+            //     ]
+            // }
         ]
     }
 }

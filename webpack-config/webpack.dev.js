@@ -24,7 +24,17 @@ entryJSON.map((url)=>{
 module.exports = merge(base, {
   devtool: 'inline-source-map',//帮助将在打包好的文件里面迅速找出报错的语句位置
   devServer: {
-    contentBase: path.resolve(__dirname, '../src')
+    contentBase: path.resolve(__dirname, '../src'),
+    historyApiFallback:true,
+    // hot: true,
+    port:8100,
+    proxy:{
+        '^api/': {
+            target:'http://127.0.0.1:8000',
+            changeOrigin:true,
+            secure:false// 接受 运行在 https 上的服务
+        }
+    }
   },
   plugins: plugins
 });
