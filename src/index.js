@@ -1,5 +1,6 @@
 import "./index.scss";
-import Data from "./assign/data/data.xml";
+// import "./assets/font/iconfont.css";
+import Data from "./assets/data/data.xml";
 console.log(Data);
 if(process.env.NODE_ENV == "production"){
     console.log("这是生产环境！");

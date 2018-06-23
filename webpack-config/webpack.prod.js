@@ -4,6 +4,7 @@ const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const base = require('./webpack.base.js');
 const entryJSON = require('../entry/entry.json');
 
@@ -15,6 +16,11 @@ let plugins = [
     new UglifyJSPlugin({
         sourceMap: true
     }),//压缩代码
+    new CopyWebpackPlugin([{
+        from: path.resolve(__dirname,'../src/assets'),
+        to:path.resolve(__dirname,'../dist/assets'),
+        ignore:['.*']
+    }])
 ];
 entryJSON.map((url)=>{
     let name = url.htmlPath;
