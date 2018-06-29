@@ -18,3 +18,8 @@ function cc(){
     })
 }
 aa();
+let ab = {a:1,b:2,c:{d:3}};
+let cd = Object.assign({},ab,{f:4})
+ab.a = 5;
+console.log(ab);
+console.log(cd);

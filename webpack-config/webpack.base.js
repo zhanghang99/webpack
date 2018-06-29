@@ -22,9 +22,9 @@ module.exports = {
                 test: /\.js$/,
                 loader:"babel-loader",
                 exclude:/node_modules/,
-                query:{
-                    presets:["es2015"]
-                }
+                // query:{
+                //     presets:["es2015"]
+                // }
             },
             { //解析 .html
                 test: /\.html$/,
