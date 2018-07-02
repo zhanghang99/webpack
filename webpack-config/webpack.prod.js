@@ -31,6 +31,12 @@ entryJSON.map((url)=>{
             chunks: [url.jsPath.slice(6,-3)],
             inject:'body',
             hash:true,
+            minify:{
+                caseSensitive:false,//是否大小写敏感
+                removeComments:true,//去除注释
+                removeEmptyAttributes:true,//去除空属性
+                collapseWhitespace:true,//是否去除空格
+            }
         })
     )
 })

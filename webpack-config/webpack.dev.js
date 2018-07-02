@@ -29,10 +29,13 @@ module.exports = merge(base, {
     // hot: true,
     port:8100,
     proxy:{
-        '^api/': {
+        '/api': {
             target:'http://127.0.0.1:8000',
             changeOrigin:true,
-            secure:false// 接受 运行在 https 上的服务
+            secure:false,// 接受 运行在 https 上的服务
+            pathRewrite:{
+                "^/api":""
+            }
         }
     }
   },
