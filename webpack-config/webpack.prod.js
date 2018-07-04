@@ -1,16 +1,16 @@
-const webpack = require('webpack');
 const path = require('path');
 const merge = require('webpack-merge');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const base = require('./webpack.base.js');
 const entryJSON = require('../entry/entry.json');
 
 let plugins = [
-    new CleanWebpackPlugin(path.resolve(__dirname, '../dist'), {
-        root: path.resolve(__dirname, '../'),    // 设置root
+    new CleanWebpackPlugin(path.resolve(__dirname, '../dist'), {//打包前删除原有dist文件
+        root: path.resolve(__dirname, '../'),    // 设置root，将webpack.config文件默认的当前假跟目录改到真实跟目录下
         verbose: true
     }),
     new UglifyJSPlugin({
@@ -20,7 +20,11 @@ let plugins = [
         from: path.resolve(__dirname,'../src/assets'),
         to:path.resolve(__dirname,'../dist/assets'),
         ignore:['.*']
-    }])
+    }]),
+    new MiniCssExtractPlugin({
+        filename:"[name].css",
+        chunckFilename:"[id].css",
+    })
 ];
 entryJSON.map((url)=>{
     let name = url.htmlPath;

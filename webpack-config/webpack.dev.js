@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
 const path = require('path');
-const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const entryJSON = require('../entry/entry.json');
 const base = require('./webpack.base.js');
 
@@ -20,6 +20,12 @@ entryJSON.map((url)=>{
         })
     )
 })
+plugins.push(
+    new MiniCssExtractPlugin({
+        filename:"[name].css",
+        chunckFilename:"[id].css",
+    })
+)
 
 module.exports = merge(base, {
   devtool: 'inline-source-map',//帮助将在打包好的文件里面迅速找出报错的语句位置
