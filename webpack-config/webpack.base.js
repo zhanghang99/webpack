@@ -21,9 +21,6 @@ module.exports = {
                 test: /\.js$/,
                 loader:"babel-loader",
                 exclude:/node_modules/,
-                // query:{
-                //     presets:["es2015"]
-                // }
             },
             { //解析 .html
                 test: /\.html$/,
@@ -79,18 +76,12 @@ module.exports = {
                     'ts-loader'
                 ] 
             },
-            // {
-            //     test: /\.(png|svg|jpg|JPG|fig)$/i,
-            //     use:[
-            //         'file-loader'
-            //     ]
-            // },
             {
-                test: /\.(png|jpg|gif)$/i,
+                test: /\.(png|svg|jpg|JPG|fig)$/i,
                 exclude:/node_modules/,
                 use:[
                     {
-                        loader: 'url-loader',
+                        loader: 'url-loader',//在这个webpack中file-loader似乎不能与url-loader共用
                         options: {
                             limit: 1024,
                             name: 'assets/Images/[name].[ext]'

@@ -13,15 +13,15 @@ let plugins = [
         root: path.resolve(__dirname, '../'),    // 设置root，将webpack.config文件默认的当前假跟目录改到真实跟目录下
         verbose: true
     }),
-    new UglifyJSPlugin({
-        sourceMap: true
-    }),//压缩代码
-    new CopyWebpackPlugin([{
+    // new UglifyJSPlugin({
+    //     sourceMap: true
+    // }),//压缩代码
+    new CopyWebpackPlugin([{//将静态资源复制到打包文件中去
         from: path.resolve(__dirname,'../src/assets'),
         to:path.resolve(__dirname,'../dist/assets'),
         ignore:['.*']
     }]),
-    new MiniCssExtractPlugin({
+    new MiniCssExtractPlugin({//将css单独打包处理
         filename:"[name].css",
         chunckFilename:"[id].css",
     })
@@ -35,7 +35,7 @@ entryJSON.map((url)=>{
             chunks: [url.jsPath.slice(6,-3)],
             inject:'body',
             hash:true,
-            minify:{
+            minify:{//html文件压缩
                 caseSensitive:false,//是否大小写敏感
                 removeComments:true,//去除注释
                 removeEmptyAttributes:true,//去除空属性
