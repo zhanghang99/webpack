@@ -31,9 +31,9 @@ plugins.push(
 module.exports = merge(base, {
   devtool: 'inline-source-map',//帮助将在打包好的文件里面迅速找出报错的语句位置
   devServer: {
-    before:function(app){
-        apiMock(app,path.resolve("roadhogrc.mock.js"))
-    },
+    // before:function(app){
+    //     apiMock(app,path.resolve("roadhogrc.mock.js"))
+    // },
     contentBase: path.resolve(__dirname, '../src'),
     historyApiFallback:true,
     // hot: true,`
