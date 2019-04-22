@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');//压缩css插件
 const base = require('./webpack.base.js');
 const entryJSON = require('../entry/entry.json');
 
@@ -24,7 +25,8 @@ let plugins = [
     new MiniCssExtractPlugin({//将css单独打包处理
         filename:"[name].css",
         chunckFilename:"[id].css",
-    })
+    }),
+    new OptimizeCssAssetsPlugin()
 ];
 entryJSON.map((url)=>{
     let name = url.htmlPath;
