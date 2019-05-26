@@ -1,0 +1,10 @@
+$bg:green;
+$fontSize:37.5;
+@media screen and (max-width: 3000px) and (min-width: 100px) {
+    $fontSize:1;
+}
+
+// $fontSize:num(1rem);
+@function p2r($px){
+  @return $px/$fontSize*1rem;
+}

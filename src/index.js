@@ -24,4 +24,4 @@ let cd = Object.assign({},ab,{f:4})
 ab.a = 5;
 console.log(ab);
 console.log(cd);
-checkLogin();
+// checkLogin();
