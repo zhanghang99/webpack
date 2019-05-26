@@ -17,7 +17,7 @@
         "polyfill":false,
         "regenerator":true,
         "moduleName":"babel-runtime"
-      }
+      } 
     ]
   ]
 }
